@@ -34,7 +34,7 @@ The proposed architecture consists of multiple distributed sensing nodes communi
 
 The operations center receives information from the sensing nodes and provides a central point for monitoring, configuration and data management.
 
-![LoRa Detector Network Architecture](images/lora-detector-network-architecture.png)
+![LoRa Detector Network Architecture](images/LoRa%20Detector%20Network%20Architecture.png)
 
 Each sensing node includes:
 
@@ -50,7 +50,7 @@ Each sensing node includes:
 
 The sensing node combines power management, processing, environmental sensing, inertial measurements and communication interfaces.
 
-![ESP32 Sensor Node Power Architecture](images/esp32-sensor-node-power-architecture.png)
+![ESP32 Sensor Node Power Architecture](images/ESP32%20Sensor%20Node%20Power%20Architecture.png)
 
 The main hardware blocks include:
 
@@ -87,7 +87,7 @@ LoRa / LoRaWAN was considered for long-range, low-power communication between se
 
 A TCP-based communication flow was designed for initialization, status exchange, configuration and sensor-data transmission.
 
-![Device Server Communication Flow](images/device-server-communication-flow.png)
+![Device Server Communication Flow](images/Device%E2%80%93Server%20Communication%20Flow.png)
 
 The communication workflow includes:
 
@@ -102,7 +102,7 @@ The communication workflow includes:
 
 The firmware architecture includes system initialization, configuration loading, network connection, TCP socket establishment, handshake processing and multiple operating modes.
 
-![Firmware Control Flow](images/firmware-control-flow.png)
+![Firmware Control Flow](images/Firmware%20Control%20Flow.png)
 
 The design also considers low-power modes for reducing energy consumption when continuous operation is not required.
 

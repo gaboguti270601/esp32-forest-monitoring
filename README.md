@@ -1,109 +1,171 @@
 # ESP32 Forest Monitoring System
 
-IoT-based forest monitoring system designed to collect environmental data and support early wildfire detection using ESP32, environmental sensors, and long-range communications.
+IoT-based environmental monitoring system designed for early wildfire-risk detection using ESP32, environmental sensors, inertial sensing and long-range communications.
 
 ## Overview
 
 This project was developed as part of the Telecommunications Engineering program at the University of Concepción.
 
-The system was designed to monitor environmental variables such as temperature, humidity, air quality, and motion using an ESP32-based sensing node. The collected information is transmitted to a central monitoring system for analysis and visualization.
+The system was designed around distributed ESP32-based sensing nodes capable of collecting environmental and inertial data such as temperature, humidity, air quality and motion.
 
-The project includes hardware design, sensor integration, communication architecture, firmware logic, data processing, and system validation.
+The project combines embedded systems, sensor integration, PCB design, communication architecture, firmware logic and data-processing concepts.
 
 ## Technologies
 
 - ESP32
 - BME688 environmental sensor
-- BMI270 inertial sensor
+- BMI270 inertial measurement unit
 - LoRa / LoRaWAN
+- TCP/IP
 - MQTT
 - HTTP
-- I2C / SPI
+- I2C
+- SPI
+- UART
 - Embedded systems
+- PCB design
 - Environmental sensing
 - IoT architecture
 - Data acquisition and processing
 
 ## System Architecture
 
-The system is composed of distributed sensing nodes and a central monitoring station.
+The proposed architecture consists of multiple distributed sensing nodes communicating with a central operations system.
+
+The operations center receives information from the sensing nodes and provides a central point for monitoring, configuration and data management.
+
+![LoRa Detector Network Architecture](images/lora-detector-network-architecture.png)
 
 Each sensing node includes:
 
 - ESP32 microcontroller
-- BME688 sensor for temperature, humidity and air quality
+- BME688 environmental sensor
 - BMI270 inertial sensor
-- Battery-powered operation
-- Long-range wireless communication
-- Data processing and transmission logic
+- Battery-powered architecture
+- Wireless communication
+- Local data acquisition and processing
+- Communication with a central monitoring system
 
-Sensor data is sent to a monitoring station where it can be stored, analyzed and used to generate alerts when abnormal environmental conditions are detected.
+## ESP32 Sensor Node Architecture
+
+The sensing node combines power management, processing, environmental sensing, inertial measurements and communication interfaces.
+
+![ESP32 Sensor Node Power Architecture](images/esp32-sensor-node-power-architecture.png)
+
+The main hardware blocks include:
+
+- USB-C power input
+- Battery charging circuit
+- Li-ion / LiPo battery subsystem
+- Voltage regulation
+- ESP32 processing unit
+- BME688 environmental sensor
+- BMI270 inertial sensor
+- Communication interfaces
 
 ## Main Features
 
-- Real-time environmental monitoring
-- Temperature and humidity acquisition
-- Air quality monitoring
+- Environmental data acquisition
+- Temperature and humidity monitoring
+- Air-quality sensing
 - Motion and vibration detection
-- Wireless data transmission
-- Data filtering and processing
-- Alert generation
-- Modular and scalable IoT architecture
+- Wireless communication architecture
+- Low-power operating modes
+- Configuration storage
+- Data transmission to a central system
+- Modular and scalable sensor-node design
 
-## Communications
+## Communication Architecture
 
-The project considered different communication technologies for data transmission:
+The project explored multiple communication mechanisms according to the requirements of each section of the system.
 
-- **LoRaWAN** for long-range, low-power communication
-- **MQTT** for lightweight IoT messaging
-- **HTTP** for integration with monitoring and storage platforms
+### Long-Range Communication
+
+LoRa / LoRaWAN was considered for long-range, low-power communication between sensing nodes and the central system.
+
+### Device–Server Communication
+
+A TCP-based communication flow was designed for initialization, status exchange, configuration and sensor-data transmission.
+
+![Device Server Communication Flow](images/device-server-communication-flow.png)
+
+The communication workflow includes:
+
+- Device handshake
+- Status exchange
+- Configuration transmission
+- ACK/NACK responses
+- Sensor-data transmission
+- Database interaction
+
+## Firmware Control Flow
+
+The firmware architecture includes system initialization, configuration loading, network connection, TCP socket establishment, handshake processing and multiple operating modes.
+
+![Firmware Control Flow](images/firmware-control-flow.png)
+
+The design also considers low-power modes for reducing energy consumption when continuous operation is not required.
 
 ## Hardware Design
 
-The project included the design of the electronic architecture around the ESP32 and environmental sensors.
+The project included schematic design and PCB layout development for the ESP32 sensing node.
 
-The hardware design considered:
+### Main System Schematic
 
-- Sensor interfaces
-- Power supply
-- Battery operation
-- ESP32 connectivity
-- PCB architecture
-- Environmental protection and enclosure considerations
+![Main System Schematic](images/simf-schematic.png)
+
+### Power Supply Schematic
+
+![Power Supply Schematic](images/power-schematic.png)
+
+## PCB Design
+
+### Main PCB Layout
+
+![PCB Layout](images/pcb-layout.png)
+
+The board layout integrates the processing unit, sensor interfaces, antenna section and power-management circuitry.
+
+### Power Section Layout
+
+![Power Layout](images/power-layout.png)
+
+## Sensor Interfaces
+
+### BME688 Environmental Sensor
+
+The BME688 interface is used for environmental measurements including temperature, humidity and air-quality-related variables.
+
+![BME688 Layout](images/bme688-layout.png)
+
+### BMI270 Inertial Measurement Unit
+
+The BMI270 provides inertial measurements that can be used for motion and vibration monitoring.
+
+![BMI270 Layout](images/bmi270-layout.png)
 
 ## Data Processing
 
-The system was designed to process sensor data before transmission, including:
+The system architecture considers several stages of sensor-data processing:
 
 - Periodic data acquisition
-- Data filtering
-- Statistical analysis
+- Sensor-data filtering
+- Threshold evaluation
 - Detection of abnormal environmental conditions
-- Generation of alerts based on predefined thresholds
+- Motion analysis
+- Data packaging
+- Transmission to the monitoring system
 
-The architecture was also designed to allow future integration of machine learning models for wildfire risk prediction.
-
-## Testing
-
-The project considered several validation stages:
-
-- Unit testing
-- Sensor testing
-- Communication testing
-- Integration testing
-- System testing
-- Performance testing
-
-The objective was to verify correct sensor operation, data transmission stability and compatibility between system components.
+The architecture also allows future integration of machine-learning models for environmental-risk prediction.
 
 ## Project Context
 
 Academic engineering project developed as part of the Telecommunications Engineering curriculum at the University of Concepción.
 
-The project focused on the integration of telecommunications, embedded systems, IoT communications, environmental sensing and system design.
+The project focused on the integration of telecommunications, embedded systems, IoT communications, environmental sensing, electronic design and system architecture.
 
-## Authors
+## Author
 
-Gabriel Gutiérrez Leal  
-Telecommunications Engineering  
+**Gabriel Gutiérrez Leal**  
+Civil Engineer in Telecommunications  
 University of Concepción

@@ -1,0 +1,11 @@
+#ifndef PROJECT_CONFIG_H
+#define PROJECT_CONFIG_H
+#define SAMPLE_PERIOD_MS 5000
+#define TEMP_ALERT_C 45.0f
+#define HUMIDITY_ALERT_PCT 20.0f
+#define AIR_QUALITY_ALERT 250.0f
+#define MOTION_DELTA_G 0.35f
+#define WIFI_ENABLED 0
+#define MQTT_ENABLED 0
+#define LORA_ENABLED 0
+#endif
